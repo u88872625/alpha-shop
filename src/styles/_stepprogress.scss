@@ -19,8 +19,8 @@
       align-items: center;
       width: 32px;
       height: 32px;
-      border: 1px solid var(--progress-undone-color);
-      color: var(--progress-undone-color);
+      border: 1px solid var(--step-undone-color);
+      color: var(--step-undone-color);
       border-radius: 50%;
 
       .circle-text {
@@ -63,7 +63,7 @@
     .step-label {
       display: block;
       padding-left: 5px;
-      color: var(--progress-undone-color);
+      color: var(--step-undone-color);
     }
 
     .step-bar {
