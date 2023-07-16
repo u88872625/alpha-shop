@@ -1,0 +1,32 @@
+.progressControl {
+  text-align: center;
+  border-top: 2px solid #e6e6eb;
+  margin: 2rem 10px;
+}
+
+.next-btn {
+  width: 100%;
+  height: 46px;
+  background-color: var(--btn-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 14px;
+
+  .next-arrow {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .progressControl {
+    max-width: 540px;
+    display: flex;
+    justify-content: flex-end;
+
+    .next-btn {
+      width: 176px;
+    }
+  }
+}
