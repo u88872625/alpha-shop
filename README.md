@@ -1,8 +1,8 @@
-## Alpha Shop 頁面預覽[week 1]
+## Alpha Shop
 
 使用 React 及 Node.js 製作
 
-### 頁面呈現
+### 頁面呈現[week 1]
 
 ![Index page about Alpha Shop](./src/img/readme_image.png)
 
