@@ -2,6 +2,7 @@
   --background-color: #ffffff;
   --main-text: #2a2a2a;
   --progress-undone-color: #f0f0f5;
+  --step-undone-color: #afb1bd;
   --input-label-color: #808080;
   --btn-color: #f67599;
 }
@@ -39,8 +40,8 @@ body {
   align-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--progress-undone-color);
-  color: var(--progress-undone-color);
+  border: 1px solid var(--step-undone-color);
+  color: var(--step-undone-color);
   border-radius: 50%;
 }
 .step-container .stepper .step-circle .circle-text {
@@ -77,7 +78,7 @@ body {
   .stepProgress .step-label {
     display: block;
     padding-left: 5px;
-    color: var(--progress-undone-color);
+    color: var(--step-undone-color);
   }
   .stepProgress .step-bar {
     max-width: 60px;
