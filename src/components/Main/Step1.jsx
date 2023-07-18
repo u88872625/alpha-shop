@@ -1,35 +1,5 @@
 import React from "react";
-
-function CountySelect() {
-  const counties = [
-    { text: "請選擇縣市" },
-    { text: "台北市" },
-    { text: "新北市" },
-    { text: "基隆市" },
-    { text: "桃園市" },
-    { text: "新竹縣" },
-    { text: "苗栗縣" },
-    { text: "台中市" },
-    { text: "彰化縣" },
-    { text: "雲林縣" },
-    { text: "嘉義縣" },
-    { text: "台南市" },
-    { text: "高雄市" },
-    { text: "屏東縣" },
-    { text: "台東縣" },
-    { text: "花蓮縣" },
-    { text: "宜蘭縣" },
-    { text: "南投縣" },
-  ];
-
-  return (
-    <>
-      {counties.map((county) => (
-        <option>{county.text}</option>
-      ))}
-    </>
-  );
-}
+import counties from "./counties";
 
 const Step1 = () => {
   return (
@@ -62,7 +32,9 @@ const Step1 = () => {
           <div className="input-group  input-county">
             <label className="input-label">縣市</label>
             <select>
-              <CountySelect />
+              {counties.map((county) => (
+                <option>{county}</option>
+              ))}
             </select>
           </div>
           <div className="input-group  input-address">

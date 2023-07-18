@@ -19,7 +19,7 @@ body {
   }
 }
 
-@import "./stepprogress";
-@import "./main";
-@import "./step";
-@import "./progresscontrol";
+@import "../components/Main/stepprogress";
+@import "../components/Main/main";
+@import "../components/Main/step";
+@import "../components/Main/progresscontrol";
