@@ -5,6 +5,7 @@
   --step-undone-color: #afb1bd;
   --input-label-color: #808080;
   --btn-color: #f67599;
+  --cart-border-color: #f0f0f5;
 }
 
 body {
@@ -224,4 +225,12 @@ body {
   .progressControl .next-btn {
     width: 176px;
   }
+}
+.product-list {
+  border: 2px solid var(--cart-border-color);
+  border-radius: 10px;
+  padding: 32px;
+}
+.product-list .product-container {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

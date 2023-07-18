@@ -5,6 +5,7 @@
   --step-undone-color: #afb1bd;
   --input-label-color: #808080;
   --btn-color: #f67599;
+  --cart-border-color: #f0f0f5;
 }
 
 body {
@@ -23,3 +24,4 @@ body {
 @import "../components/Main/main";
 @import "../components/Main/step";
 @import "../components/Main/progresscontrol";
+@import "../components/Cart/cart";

@@ -2,6 +2,7 @@ import React from "react";
 import StepProgress from "./StepProgress";
 import Step1 from "./Step1";
 import ProgressControl from "./ProgressControl";
+import Cart from "../Cart/Cart";
 
 const Main = () => {
   return (
@@ -9,6 +10,7 @@ const Main = () => {
       <StepProgress />
       <Step1 />
       <ProgressControl />
+      <Cart />
     </div>
   );
 };
