@@ -23,19 +23,19 @@ const Cart = () => {
             <svg className="product-action minus">
               <IconPlus />
             </svg>
-            <span className="product-count"></span>
+            <span className="product-count">1</span>
             <svg className="product-action plus">
               <IconMinus />
             </svg>
           </div>
         </div>
-        <div className="price">{cartproduct.price}</div>
+        <div className="price">${cartproduct.price}</div>
       </div>
     </div>
   ));
 
   return (
-    <div>
+    <div className="cart">
       <section class="cart-container">
         <h3 class="cart-title">購物籃</h3>
 
@@ -43,13 +43,13 @@ const Cart = () => {
           {CartItems}
         </section>
 
-        <section class="cart-info shipping col col-12">
+        <section class="cart-info shipping ">
           <div class="text">運費</div>
-          <div class="price"></div>
+          <div class="price">免費</div>
         </section>
-        <section class="cart-info total col col-12">
+        <section class="cart-info total ">
           <div class="text">小計</div>
-          <div class="price"></div>
+          <div class="price">$300</div>
         </section>
       </section>
     </div>
