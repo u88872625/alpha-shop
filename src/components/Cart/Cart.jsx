@@ -21,11 +21,11 @@ const Cart = () => {
         <div className="product-control-container">
           <div className="product-control">
             <svg className="product-action minus">
-              <IconPlus />
+              <IconMinus />
             </svg>
             <span className="product-count">1</span>
             <svg className="product-action plus">
-              <IconMinus />
+              <IconPlus />
             </svg>
           </div>
         </div>
