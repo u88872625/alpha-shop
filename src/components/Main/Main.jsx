@@ -7,10 +7,14 @@ import Cart from "../Cart/Cart";
 const Main = () => {
   return (
     <div className="main">
-      <StepProgress />
-      <Step1 />
+      <div className="main-container">
+        <div className="main-form">
+          <StepProgress />
+          <Step1 />
+        </div>
+        <Cart />
+      </div>
       <ProgressControl />
-      <Cart />
     </div>
   );
 };
