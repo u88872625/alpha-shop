@@ -6,22 +6,33 @@
   --input-label-color: #808080;
   --btn-color: #f67599;
   --cart-border-color: #f0f0f5;
+  --cart-control-btn-color: #f0f0f5;
 }
 
 body {
   background-color: var(--background-color);
   font-family: "PT Sans", sans-serif;
   margin: 0 32px;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 576px) {
   body {
-    margin: 0 20%;
+    .main {
+      width: 80%;
+      .main-container {
+        display: flex;
+        flex-direction: row;
+      }
+    }
   }
 }
 
 @import "../components/Main/stepprogress";
-@import "../components/Main/main";
 @import "../components/Main/step";
 @import "../components/Main/progresscontrol";
 @import "../components/Cart/cart";
