@@ -1,10 +1,10 @@
 ## Alpha Shop
 
-使用 React 及 Node.js 製作
+使用 React 及 Node.js 製作(本次新增右側購物籃)
 
-### 頁面呈現[week 1]
+### 頁面呈現[week 2]
 
-![Index page about Alpha Shop](../alpha_shop/src/image/readme-image.png)
+![Index page about Alpha Shop](../alpha_shop/src/image/reademe-image-week2.png)
 
 ## 如何使用
 
