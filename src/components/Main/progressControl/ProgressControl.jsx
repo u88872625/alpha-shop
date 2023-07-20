@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as IconArrow } from "../icon/arrow.svg";
+import { ReactComponent as IconArrow } from "../../icon/arrow.svg";
 
 function NextBtn({ onClick }) {
   return (

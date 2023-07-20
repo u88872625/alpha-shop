@@ -1,8 +1,8 @@
 import React from "react";
-import StepProgress from "./StepProgress";
-import Step1 from "./Step1";
-import ProgressControl from "./ProgressControl";
-import Cart from "../Cart/Cart";
+import StepProgress from "./stepProgress/StepProgress";
+import Step1 from "./step/Step1";
+import ProgressControl from "./progressControl/ProgressControl";
+import Cart from "./Cart/Cart";
 
 const Main = () => {
   return (

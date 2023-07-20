@@ -1,4 +1,4 @@
-export const CartProducts = [
+export const CartProduct = [
   {
     id: "1",
     name: "貓咪罐罐",
