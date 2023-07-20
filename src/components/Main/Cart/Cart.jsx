@@ -46,7 +46,7 @@ function CartItems({ id, name, price, img, clickPlus, clickMinus }) {
   );
 }
 
-const Cart = ({ products }) => {
+const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   function clickPlus(price) {
     setTotalPrice(totalPrice + price);
