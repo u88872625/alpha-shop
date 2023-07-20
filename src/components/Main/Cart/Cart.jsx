@@ -1,33 +1,32 @@
 import React, { useState } from "react";
-import { CartProduct } from "./CartProduct";
+import { dummyProducts } from "./CartProduct";
 import { ReactComponent as IconPlus } from "../../icon/Plus.svg";
 import { ReactComponent as IconMinus } from "../../icon/Minus.svg";
 
-function CartItems({ id, name, price, img, clickPlus, clickMinus }) {
+function CartItems({ product, clickPlus, clickMinus }) {
   const [quantity, setQuantity] = useState(0);
   function increment() {
     setQuantity(quantity + 1);
-    clickPlus(price);
+    clickPlus(product.price);
   }
   function decrement() {
     if (quantity > 0) {
       setQuantity(quantity - 1);
-      clickMinus(price);
+      clickMinus(product.price);
     }
   }
 
   return (
     <>
       <div
-        id={id}
-        key={id}
+        id={product.id}
         className="product-container"
         data-count={quantity}
-        data-price={price}
+        data-price={product.price}
       >
-        <img className="img-container" src={img} alt={name} />
+        <img className="img-container" src={product.img} alt={product.name} />
         <div className="product-info">
-          <div className="product-name">{name}</div>
+          <div className="product-name">{product.name}</div>
           <div className="product-control-container">
             <div className="product-control">
               <svg className="product-action minus" onClick={decrement}>
@@ -39,7 +38,7 @@ function CartItems({ id, name, price, img, clickPlus, clickMinus }) {
               </svg>
             </div>
           </div>
-          <div className="price">${price * quantity}</div>
+          <div className="price">${product.price * quantity}</div>
         </div>
       </div>
     </>
@@ -62,12 +61,10 @@ const Cart = () => {
         <h3 class="cart-title">購物籃</h3>
 
         <section class="product-list " data-total-price="0">
-          {CartProduct.map((product) => (
+          {dummyProducts.map((product) => (
             <CartItems
-              id={product.id}
-              name={product.name}
-              price={product.price}
-              img={product.img}
+              key={product.id}
+              product={product}
               clickPlus={clickPlus}
               clickMinus={clickMinus}
             />
