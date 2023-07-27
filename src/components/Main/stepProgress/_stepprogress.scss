@@ -1,3 +1,80 @@
+%done-step {
+  .step-circle {
+    background-color: var(--main-text);
+
+    .done-icon {
+      display: inline-block;
+    }
+    .circle-text {
+      display: none;
+    }
+  }
+
+  .step-label {
+    color: #000;
+  }
+}
+
+%doing-step {
+  .step-circle {
+    background-color: var(--main-text);
+
+    .done-icon {
+      display: none;
+    }
+    .circle-text {
+      display: inline-block;
+      color: #fff;
+    }
+  }
+
+  .step-label {
+    color: #000;
+  }
+}
+
+// for changing step
+@for $nowstep from 1 to 4 {
+  .step-container[data-step="#{$nowstep}"] {
+    .step-bar {
+      &[data-number="1"] {
+        background-color: var(--main-text);
+      }
+      &[data-number="2"] {
+        @if $nowstep == 1 {
+          background-color: var(--progress-undone-color);
+        } @else {
+          background-color: var(--main-text);
+        }
+      }
+    }
+
+    .stepper {
+      &[data-number="1"] {
+        @if $nowstep == 1 {
+          @extend%doing-step;
+        } @else {
+          @extend%done-step;
+        }
+      }
+
+      &[data-number="2"] {
+        @if $nowstep == 2 {
+          @extend%doing-step;
+        } @else if $nowstep == 3 {
+          @extend%done-step;
+        }
+      }
+      &[data-number="3"] {
+        @if $nowstep == 3 {
+          @extend%doing-step;
+        }
+      }
+    }
+  }
+}
+
+// basic css styles
 .progress-title {
   font-size: 24px;
 }
@@ -27,11 +104,9 @@
         font-weight: 700;
         font-size: 16px;
       }
-    }
-
-    .active {
-      background-color: var(--main-text);
-      color: #fff;
+      .done-icon {
+        display: none;
+      }
     }
   }
   .step-bar {
@@ -47,6 +122,7 @@
   display: none;
 }
 
+// table screen
 @media screen and (min-width: 576px) {
   .stepProgress {
     max-width: 536px;

@@ -1,10 +1,12 @@
 import React from "react";
+import { ReactComponent as DoneIcon } from "../../icon/DoneIcone.svg";
 
-function Step({ number, data, step }) {
+function Step({ number, step }) {
   return (
     <>
-      <span className="stepper" data-phase={data}>
+      <span className="stepper" data-number={number}>
         <div className="step-circle">
+          <DoneIcon className="done-icon" />
           <span className="circle-text">{number}</span>
         </div>
         <span className="step-label">{step}</span>
@@ -14,14 +16,14 @@ function Step({ number, data, step }) {
   );
 }
 
-const StepProgress = () => {
+const StepProgress = ({ nowStep }) => {
   return (
     <div className="stepProgress">
       <h1 className="progress-title">結帳</h1>
-      <div className="step-container">
-        <Step number={1} data="adress" step="寄送地址" />
-        <Step number={2} data="shipping" step="運送方式" />
-        <Step number={3} data="checkout" step="付款資訊" />
+      <div className="step-container" data-step={nowStep}>
+        <Step number={1} step="寄送地址" />
+        <Step number={2} step="運送方式" />
+        <Step number={3} step="付款資訊" />
       </div>
     </div>
   );
