@@ -80,10 +80,10 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <section class="cart-container">
-        <h3 class="cart-title">購物籃</h3>
+      <section className="cart-container">
+        <h3 className="cart-title">購物籃</h3>
 
-        <section class="product-list ">
+        <section className="product-list ">
           <CartItems
             products={products}
             onPlus={handlePlusClick}
@@ -91,13 +91,13 @@ const Cart = () => {
           />
         </section>
 
-        <section class="cart-info shipping ">
-          <div class="text">運費</div>
-          <div class="price">免費</div>
+        <section className="cart-info shipping ">
+          <div className="text">運費</div>
+          <div className="price">免費</div>
         </section>
-        <section class="cart-info total ">
-          <div class="text">小計</div>
-          <div class="price">${totalPrice.toLocaleString()}</div>
+        <section className="cart-info total ">
+          <div className="text">小計</div>
+          <div className="price">${totalPrice.toLocaleString()}</div>
         </section>
       </section>
     </div>
