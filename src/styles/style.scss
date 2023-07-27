@@ -7,6 +7,8 @@
   --btn-color: #f67599;
   --cart-border-color: #f0f0f5;
   --cart-control-btn-color: #f0f0f5;
+  --radio-input-unchecked: #f0f0f5;
+  --radio-input-checked: #2a2a2a;
 }
 
 body {
@@ -23,10 +25,17 @@ body {
 @media screen and (min-width: 576px) {
   body {
     .main {
+      position: relative;
       width: 80%;
+
       .main-container {
         display: flex;
         flex-direction: row;
+      }
+
+      .progressControl {
+        position: absolute;
+        top: 520px;
       }
     }
   }

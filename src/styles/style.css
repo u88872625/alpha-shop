@@ -7,6 +7,8 @@
   --btn-color: #f67599;
   --cart-border-color: #f0f0f5;
   --cart-control-btn-color: #f0f0f5;
+  --radio-input-unchecked: #f0f0f5;
+  --radio-input-checked: #2a2a2a;
 }
 
 body {
@@ -21,12 +23,62 @@ body .main {
 
 @media screen and (min-width: 576px) {
   body .main {
+    position: relative;
     width: 80%;
   }
   body .main .main-container {
     display: flex;
     flex-direction: row;
   }
+  body .main .progressControl {
+    position: absolute;
+    top: 520px;
+  }
+}
+.step-container[data-step="3"] .stepper[data-number="2"] .step-circle, .step-container[data-step="3"] .stepper[data-number="1"] .step-circle, .step-container[data-step="2"] .stepper[data-number="1"] .step-circle {
+  background-color: var(--main-text);
+}
+.step-container[data-step="3"] .stepper[data-number="2"] .step-circle .done-icon, .step-container[data-step="3"] .stepper[data-number="1"] .step-circle .done-icon, .step-container[data-step="2"] .stepper[data-number="1"] .step-circle .done-icon {
+  display: inline-block;
+}
+.step-container[data-step="3"] .stepper[data-number="2"] .step-circle .circle-text, .step-container[data-step="3"] .stepper[data-number="1"] .step-circle .circle-text, .step-container[data-step="2"] .stepper[data-number="1"] .step-circle .circle-text {
+  display: none;
+}
+.step-container[data-step="3"] .stepper[data-number="2"] .step-label, .step-container[data-step="3"] .stepper[data-number="1"] .step-label, .step-container[data-step="2"] .stepper[data-number="1"] .step-label {
+  color: #000;
+}
+
+.step-container[data-step="3"] .stepper[data-number="3"] .step-circle, .step-container[data-step="2"] .stepper[data-number="2"] .step-circle, .step-container[data-step="1"] .stepper[data-number="1"] .step-circle {
+  background-color: var(--main-text);
+}
+.step-container[data-step="3"] .stepper[data-number="3"] .step-circle .done-icon, .step-container[data-step="2"] .stepper[data-number="2"] .step-circle .done-icon, .step-container[data-step="1"] .stepper[data-number="1"] .step-circle .done-icon {
+  display: none;
+}
+.step-container[data-step="3"] .stepper[data-number="3"] .step-circle .circle-text, .step-container[data-step="2"] .stepper[data-number="2"] .step-circle .circle-text, .step-container[data-step="1"] .stepper[data-number="1"] .step-circle .circle-text {
+  display: inline-block;
+  color: #fff;
+}
+.step-container[data-step="3"] .stepper[data-number="3"] .step-label, .step-container[data-step="2"] .stepper[data-number="2"] .step-label, .step-container[data-step="1"] .stepper[data-number="1"] .step-label {
+  color: #000;
+}
+
+.step-container[data-step="1"] .step-bar[data-number="1"] {
+  background-color: var(--main-text);
+}
+.step-container[data-step="1"] .step-bar[data-number="2"] {
+  background-color: var(--progress-undone-color);
+}
+.step-container[data-step="2"] .step-bar[data-number="1"] {
+  background-color: var(--main-text);
+}
+.step-container[data-step="2"] .step-bar[data-number="2"] {
+  background-color: var(--main-text);
+}
+.step-container[data-step="3"] .step-bar[data-number="1"] {
+  background-color: var(--main-text);
+}
+.step-container[data-step="3"] .step-bar[data-number="2"] {
+  background-color: var(--main-text);
 }
 .progress-title {
   font-size: 24px;
@@ -58,9 +110,8 @@ body .main {
   font-weight: 700;
   font-size: 16px;
 }
-.step-container .stepper .active {
-  background-color: var(--main-text);
-  color: #fff;
+.step-container .stepper .step-circle .done-icon {
+  display: none;
 }
 .step-container .step-bar {
   content: "";
@@ -139,14 +190,17 @@ body .main {
 }
 
 .form-radio {
+  position: relative;
+  max-width: 435px;
   display: grid;
   grid-template-columns: 10% 70% 20%;
   align-items: center;
   width: 100%;
   height: 60px;
-  border: 1px solid var(--main-text);
+  border: 1px solid var(--radio-input-unchecked);
   border-radius: 5px;
   margin-bottom: 32px;
+  cursor: pointer;
 }
 .form-radio input[type=radio] {
   width: 20px;
@@ -154,14 +208,25 @@ body .main {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  font: inherit;
   color: var(--main-text);
   border: 1px solid var(--main-text);
   border-radius: 50%;
   margin-left: 1rem;
+  z-index: 999;
+}
+.form-radio .radio-input-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .form-radio input[type=radio]:checked {
   border: 0.4em solid var(--main-text);
+}
+.form-radio input[type=radio]:checked ~ .radio-input-border {
+  border: 1px solid var(--radio-input-checked);
+  border-radius: 5px;
 }
 .form-radio .radio-text {
   padding-left: 10px;
@@ -181,7 +246,7 @@ body .main {
 
 @media screen and (min-width: 576px) {
   .form-container {
-    max-width: 540px;
+    width: 540px;
   }
   .form-container .input-phone {
     width: 60%;
@@ -200,34 +265,54 @@ body .main {
     max-width: 350px;
   }
 }
-.progressControl {
+.btn-container {
   text-align: center;
   border-top: 2px solid #e6e6eb;
   margin: 2rem 10px;
+  display: flex;
+  justify-content: space-between;
 }
-
-.next-btn {
-  width: 100%;
+.btn-container button {
   height: 46px;
-  background-color: var(--btn-color);
+  width: 100%;
   border: none;
-  border-radius: 5px;
-  color: #fff;
   margin-top: 2rem;
   font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.next-btn .next-arrow {
+
+.next-btn,
+.checkout-btn {
+  background-color: var(--btn-color);
+  color: #fff;
+}
+.next-btn .next-arrow,
+.checkout-btn .next-arrow {
   padding-left: 1rem;
 }
 
+.prev-btn {
+  background-color: transparent;
+  color: #000;
+  margin-right: 7rem;
+}
+.prev-btn .prev-arrow {
+  padding-right: 1rem;
+}
+
 @media screen and (min-width: 576px) {
-  .progressControl {
-    max-width: 540px;
-    display: flex;
+  .btn-container {
+    width: 540px;
     justify-content: flex-end;
+    position: relative;
   }
-  .progressControl .next-btn {
-    width: 176px;
+  .btn-container button {
+    width: 174px;
+  }
+  .btn-container .prev-btn {
+    position: absolute;
+    left: 0;
   }
 }
 .product-list .product-container {
@@ -262,7 +347,7 @@ body .main {
   height: 21px;
   background-color: var(--cart-control-btn-color);
   border-radius: 50%;
-  padding: 10px 0 0 10px;
+  padding: 5px 0 0 9px;
   cursor: pointer;
 }
 .product-list .product-container .product-info .product-control .product-count {
@@ -302,7 +387,8 @@ body .main {
   .cart-container {
     margin-top: 100px;
     margin-left: 3rem;
-    width: 440px;
+    width: 400px;
+    padding: 1rem 2rem;
   }
   .cart-container .cart-title {
     display: block;
