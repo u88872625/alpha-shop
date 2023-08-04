@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CardInfoContext } from "../../../Context/CardInfoContext";
 import { ReactComponent as IconNextArrow } from "../../icon/NextArrow.svg";
 import { ReactComponent as IconPrevArrow } from "../../icon/PrevArrow.svg";
 
@@ -25,14 +26,18 @@ function PrevBtn({ onClick }) {
 }
 
 const ProgressControl = ({ nowStep, onClick }) => {
+  const { handleCardSubmit } = useContext(CardInfoContext);
+
   return (
     <div className="progressControl">
       <div className="btn-container">
-        {nowStep > 1 && <PrevBtn onClick={onClick} />}
+        {nowStep > 1 && <PrevBtn onClick={(e) => onClick(false, nowStep)} />}
         {nowStep < 3 ? (
-          <NextBtn onClick={onClick} />
+          <NextBtn onClick={(e) => onClick(true, nowStep)} />
         ) : (
-          <button className="checkout-btn">確認訂單</button>
+          <button className="checkout-btn" onClick={(e) => handleCardSubmit(e)}>
+            確認訂單
+          </button>
         )}
       </div>
     </div>
