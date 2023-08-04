@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as DoneIcon } from "../../icon/DoneIcone.svg";
+import { ReactComponent as DoneIcon } from "../../../assets/icon/DoneIcone.svg";
 
 function Step({ number, step }) {
   return (

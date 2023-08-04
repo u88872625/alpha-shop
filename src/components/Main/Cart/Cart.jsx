@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import { ShippingContext } from "../../../Context/ShippingContext";
-import { ReactComponent as IconPlus } from "../../icon/Plus.svg";
-import { ReactComponent as IconMinus } from "../../icon/Minus.svg";
+import { ReactComponent as IconPlus } from "../../../assets/icon/Plus.svg";
+import { ReactComponent as IconMinus } from "../../../assets/icon/Minus.svg";
 
 function CartItems({ product, handleQuantityClick }) {
   return (

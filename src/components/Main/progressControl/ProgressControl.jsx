@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CardInfoContext } from "../../../Context/CardInfoContext";
-import { ReactComponent as IconNextArrow } from "../../icon/NextArrow.svg";
-import { ReactComponent as IconPrevArrow } from "../../icon/PrevArrow.svg";
+import { ReactComponent as IconNextArrow } from "../../../assets/icon/NextArrow.svg";
+import { ReactComponent as IconPrevArrow } from "../../../assets/icon/PrevArrow.svg";
 
 function NextBtn({ onClick }) {
   return (
