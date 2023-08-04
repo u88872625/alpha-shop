@@ -1,82 +1,49 @@
-import React, { useState } from "react";
-import { dummyProducts } from "./CartProduct";
+import React, { useContext } from "react";
+import { CartContext } from "../../../Context/CartContext";
+import { ShippingContext } from "../../../Context/ShippingContext";
 import { ReactComponent as IconPlus } from "../../icon/Plus.svg";
 import { ReactComponent as IconMinus } from "../../icon/Minus.svg";
 
-function CartItems({ products, onPlus, onMinus }) {
+function CartItems({ product, handleQuantityClick }) {
   return (
     <>
-      {products.map((product) => (
-        <div key={product.id} id={product.id} className="product-container">
-          <img className="img-container" src={product.img} alt={product.name} />
-          <div className="product-info">
-            <div className="product-name">{product.name}</div>
-            <div className="product-control-container">
-              <div className="product-control">
-                <svg
-                  className="product-action minus"
-                  onClick={() => {
-                    onMinus(product.id);
-                  }}
-                >
-                  <IconMinus />
-                </svg>
-                <span className="product-count">{product.quantity}</span>
-                <svg
-                  className="product-action plus"
-                  onClick={() => {
-                    onPlus(product.id);
-                  }}
-                >
-                  <IconPlus />
-                </svg>
-              </div>
-            </div>
-            <div className="price">
-              ${(product.price * product.quantity).toLocaleString()}
+      <div id={product.id} className="product-container">
+        <img className="img-container" src={product.img} alt={product.name} />
+        <div className="product-info">
+          <div className="product-name">{product.name}</div>
+          <div className="product-control-container">
+            <div className="product-control">
+              <svg
+                className="product-action minus"
+                onClick={() => {
+                  handleQuantityClick(product.id, "minus");
+                }}
+              >
+                <IconMinus />
+              </svg>
+              <span className="product-count">{product.quantity}</span>
+              <svg
+                className="product-action plus"
+                onClick={() => {
+                  handleQuantityClick(product.id, "plus");
+                }}
+              >
+                <IconPlus />
+              </svg>
             </div>
           </div>
+          <div className="price">
+            ${(product.price * product.quantity).toLocaleString()}
+          </div>
         </div>
-      ))}
+      </div>
     </>
   );
 }
 
 const Cart = () => {
-  const [products, setProducts] = useState([...dummyProducts]);
-  function handlePlusClick(productId) {
-    setProducts(
-      products.map((product) => {
-        if (product.id === productId) {
-          return {
-            ...product,
-            quantity: product.quantity + 1,
-          };
-        } else {
-          return product;
-        }
-      })
-    );
-  }
-
-  function handleMinusClick(productId) {
-    let nextProducts = products.map((product) => {
-      if (product.id === productId) {
-        return {
-          ...product,
-          quantity: product.quantity - 1,
-        };
-      } else {
-        return product;
-      }
-    });
-    nextProducts = nextProducts.filter((p) => p.quantity > 0);
-    setProducts(nextProducts);
-  }
-
-  const totalPrice = products.reduce((total, product) => {
-    return total + product.price * product.quantity;
-  }, 0);
+  const { products, handleQuantityClick, totalPrice } = useContext(CartContext);
+  const { shippingCost } = useContext(ShippingContext);
 
   return (
     <div className="cart">
@@ -84,16 +51,18 @@ const Cart = () => {
         <h3 className="cart-title">購物籃</h3>
 
         <section className="product-list ">
-          <CartItems
-            products={products}
-            onPlus={handlePlusClick}
-            onMinus={handleMinusClick}
-          />
+          {products.map((product) => (
+            <CartItems
+              key={product.id}
+              product={product}
+              handleQuantityClick={handleQuantityClick}
+            />
+          ))}
         </section>
 
         <section className="cart-info shipping ">
           <div className="text">運費</div>
-          <div className="price">免費</div>
+          <div className="price">${shippingCost}</div>
         </section>
         <section className="cart-info total ">
           <div className="text">小計</div>
