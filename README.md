@@ -4,7 +4,7 @@
 
 ### 頁面呈現
 
-![Index page about Alpha Shop](./src/image/reademe-image-week2.png)
+![Index page about Alpha Shop](./src/assets/image/reademe-image-week2.png)
 
 ## 如何使用
 
