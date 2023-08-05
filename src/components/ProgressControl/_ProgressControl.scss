@@ -1,0 +1,54 @@
+.btn-container {
+  text-align: center;
+  border-top: 2px solid #e6e6eb;
+  margin: 2rem 10px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    height: 46px;
+    width: 100%;
+    border: none;
+    margin-top: 2rem;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.next-btn,
+.checkout-btn {
+  background-color: var(--btn-color);
+  color: #fff;
+
+  .next-arrow {
+    padding-left: 1rem;
+  }
+}
+
+.prev-btn {
+  background-color: transparent;
+  color: #000;
+  margin-right: 7rem;
+
+  .prev-arrow {
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .btn-container {
+    width: 540px;
+    justify-content: flex-end;
+    position: relative;
+
+    button {
+      width: 174px;
+    }
+
+    .prev-btn {
+      position: absolute;
+      left: 0;
+    }
+  }
+}
