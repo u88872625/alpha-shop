@@ -27,8 +27,8 @@ const Main = () => {
   return (
     <div className="main">
       <ShippingContextProvider>
-        <CardInfoContextProvider>
-          <CartProvider>
+        <CartProvider>
+          <CardInfoContextProvider>
             <div className="main-container">
               <div className="main-form">
                 <StepProgress nowStep={nowStep} />
@@ -39,8 +39,8 @@ const Main = () => {
               <Cart />
             </div>
             <ProgressControl nowStep={nowStep} onClick={handlePhaseClick} />
-          </CartProvider>
-        </CardInfoContextProvider>
+          </CardInfoContextProvider>
+        </CartProvider>
       </ShippingContextProvider>
     </div>
   );
